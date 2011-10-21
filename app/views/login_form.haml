@@ -1,14 +1,10 @@
-%fieldset
-%legend You need to log in, buddy.
 %form{:action => '/sso/login', :method => 'POST'}
   %label{:for => 'username'}
-    Username:
+    Benutzername im Schulnetzwerk:
     %input{:type => 'text', :name => 'username'}
     %br
   %label{:for => 'password'}
-    Password:
+    Passwort im Schulnetzwerk:
     %input{:type => 'password', :name => 'password'}
     %br
-  %input{:type => 'submit', :value => 'Login'}
-  or
-  %a{:href => '/sso/signup'} Signup
+  %input{:type => 'submit', :value => 'Anmelden', :style => 'width: 100%'}

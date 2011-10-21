@@ -1,19 +1,21 @@
 !!!
 %html
   %head
-    %meta{'http-equiv' => "Content-Type", 'content' => "text/html; charset=utf-8"}
     %link{'rel' => 'stylesheet', 'type' => 'text/css', 'href' => '/style.css'}
     %link{'rel' => 'stylesheet', 'type' => 'text/css', 'href' => '/buttons-small.css'}
-    %title Step Right Up
+    %title FichteID
   %body
-    %h1 FichteID
+    %h1
+      %a{:href => '/'} FichteID
     #header
       - if session_user
-        %span== Angemeldet als #{session_user}
         %a.cupid-green{:href => '/sso/logout'} Abmelden
+        .text
+          Angemeldet als 
+          %span.username= session_user
+        
       - else
-      
         %a.cupid-green{:href => '/sso/login'} Anmelden
-        .text== Sie sind nicht angemeldet.
+        .text Sie sind nicht angemeldet.
     #content
       %p= yield
