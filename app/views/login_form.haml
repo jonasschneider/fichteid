@@ -1,4 +1,6 @@
 %form{:action => '/sso/login', :method => 'POST'}
+  - if params['failed_auth']
+    omg fail
   %label{:for => 'username'}
     Benutzername im Schulnetzwerk:
     %input{:type => 'text', :name => 'username'}

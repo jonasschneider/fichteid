@@ -1,0 +1,8 @@
+Willkommen bei FichteID usw.
+
+- if session_user
+  Ihre Daten:
+  %dl
+  - session_user_info.each do |k, v|
+    %dt= k
+    %dd= v
