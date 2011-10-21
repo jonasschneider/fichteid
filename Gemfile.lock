@@ -1,5 +1,6 @@
-PATH
-  remote: ../hancock
+GIT
+  remote: git://github.com/jonasschneider/hancock.git
+  revision: 1c1f0bf277427f106217e43e14d37474a0488c4b
   specs:
     hancock (0.2.0)
       guid (~> 0.1.1)

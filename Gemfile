@@ -1,5 +1,5 @@
 source :rubygems
 
-gem 'hancock', :path => '../hancock'
+gem 'hancock', :git => 'git://github.com/jonasschneider/hancock.git'
 
 gem 'net-ldap'
