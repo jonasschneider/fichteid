@@ -1,4 +1,4 @@
-source :rubygems
+source "http://rubygems.org"
 
 gem 'hancock', :git => 'git://github.com/jonasschneider/hancock.git'
 

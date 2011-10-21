@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/jonasschneider/hancock.git
-  revision: 1c1f0bf277427f106217e43e14d37474a0488c4b
+  revision: 0c9e196e59cfc311b9880b0fbd1de2bc53d3e417
   specs:
-    hancock (0.2.0)
+    hancock (0.3.0)
       guid (~> 0.1.1)
       haml (~> 3.0.0)
       json
