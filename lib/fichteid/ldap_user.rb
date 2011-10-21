@@ -19,7 +19,7 @@ module Fichteid
       info = nil
       
       connect do |ldap|
-        ldap.auth "uid=schneijo,#{BASEDN}", password
+        ldap.auth "uid=#{user},#{BASEDN}", password
         auth_result = ldap.bind
         
         info = user_details ldap, user if auth_result == true
