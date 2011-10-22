@@ -27,7 +27,9 @@ module Fichteid
     def authorize_openid_request!
       if params['openid.return_to']
         signature = OpenSSL::HMAC.digest(OpenSSL::Digest::Digest.new('sha1'), settings.hmac_secret, params['openid.return_to'].to_s)
-        halt 'invalid req.' unless Base64.urlsafe_encode64(signature) == params['return_url_signature']
+        unless Base64.urlsafe_encode64(signature) == params['return_url_signature']
+          halt 401, 'Invalid signature' 
+        end
       end
     end
     
@@ -36,6 +38,7 @@ module Fichteid
     end
     
     get '/' do
+      clear_return_to!
       haml :index
     end
   end
