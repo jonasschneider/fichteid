@@ -1,6 +1,10 @@
+- if session['return_to'] && session['openid_realm']
+  - section :info do
+    Bitte melden Sie sich an, um auf
+    %strong= session['openid_realm']
+    zuzugreifen.
+
 %form{:action => '/sso/login', :method => 'POST'}
-  - if params['failed_auth']
-    omg fail
   %label{:for => 'username'}
     Benutzername im Schulnetzwerk:
     %input{:type => 'text', :name => 'username'}

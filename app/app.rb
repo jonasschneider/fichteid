@@ -15,6 +15,8 @@ module Fichteid
       use Rack::Session::Cookie
     end
     
+    use Rack::Flash
+    
     set :authentication_delegate, Fichteid::LdapUser
     
     if ENV['HMAC_SECRET']
@@ -34,7 +36,17 @@ module Fichteid
     end
     
     def unauthenticated!
+      flash.now[:error] = 'Benutzername oder Passwort falsch.' if params['failed_auth']
       halt haml :login_form
+    end
+    
+    def section(key, *args, &block)
+      @sections ||= Hash.new{ |k,v| k[v] = [] }
+      if block_given?
+        @sections[key] << block
+      else
+        @sections[key].inject(''){ |content, block| content << capture_haml(&block) } if @sections.keys.include?(key)
+      end
     end
     
     get '/' do

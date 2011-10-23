@@ -3,8 +3,8 @@ source "http://rubygems.org"
 gem 'hancock', :git => 'git://github.com/jonasschneider/hancock.git'
 #gem 'hancock', :path => '../hancock'
 
-
 gem 'net-ldap'
+gem 'rack-flash'
 
 group :test do
   gem 'rspec',       '~>2.1.0', :require => 'rspec'

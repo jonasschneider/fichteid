@@ -17,5 +17,11 @@
       - else
         %a.cupid-green{:href => '/sso/login'} Anmelden
         .text Sie sind nicht angemeldet.
+    - if section :info
+      .flash#info= section :info
+    
+    - if flash[:error]
+      .flash#error= flash[:error]
+    
     #content
       %p= yield

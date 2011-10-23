@@ -29,6 +29,8 @@ Rspec.configure do |config|
   def app
     Fichteid::App.configure do |app|
       app.set :authentication_delegate, MyUserClass
+      app.set :raise_errors, true
+      app.set :show_exceptions, false
     end
   end
 
