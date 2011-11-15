@@ -9,10 +9,10 @@ module Fichteid
     set :haml, :format => :html5
     
     if ENV['SESSION_SECRET']
-      use Rack::Session::Cookie, :secret => ENV['SESSION_SECRET']
+      use Rack::Session::Cookie, :secret => ENV['SESSION_SECRET'], :expire_after => (365 * 24 * 60 * 60)
     else
       puts "WARNING: No session secret set by ENV['SESSION_SECRET']"
-      use Rack::Session::Cookie
+      use Rack::Session::Cookie, :expire_after => (365 * 24 * 60 * 60)
     end
     
     use Rack::Flash
