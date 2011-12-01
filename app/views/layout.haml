@@ -8,20 +8,21 @@
     %h1
       %a{:href => '/'} FichteID
     #header
-      - if session_user
-        %a.cupid-green{:href => '/sso/logout'} Abmelden
-        .text
-          Angemeldet als 
-          %span.username= session_user
-        
+      - if section :status
+        #status= section :status
       - else
-        %a.cupid-green{:href => '/sso/login'} Anmelden
-        .text Sie sind nicht angemeldet.
-    - if section :info
-      .flash#info= section :info
-    
-    - if flash[:error]
-      .flash#error= flash[:error]
+        - if session_user
+          %a.cupid-green{:href => '/sso/logout'} Abmelden
+          .text
+            Angemeldet als 
+            %span.username= session_user
+          
+        - else
+          %a.cupid-green{:href => '/sso/login'} Anmelden
+          .text Sie sind nicht angemeldet.
+      
+      - if flash[:error]
+        .flash#error= flash[:error]
     
     #content
       %p= yield
