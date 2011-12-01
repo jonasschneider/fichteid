@@ -1,7 +1,14 @@
-Willkommen bei FichteID usw.
+- if params[:logged_out]
+  %h4 Du wurdest abgemeldet.
+- else
+  %h2 Willkommen bei FichteID.
 
 - if session_user
-  Ihre Daten:
+  %h4
+    Wolltest du vielleicht zu 
+    = succeed '?' do
+      %a{ href: 'http://instabil.heroku.com' } instABIl
+  Deine Daten:
   %dl
   - session_user_info.each do |k, v|
     %dt= k
