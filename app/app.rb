@@ -15,6 +15,13 @@ module Fichteid
       use Rack::Session::Cookie, :expire_after => (365 * 24 * 60 * 60)
     end
     
+    configure :production do
+      use ExceptionNotifier,
+        :email_prefix => "[FichteID] ",
+        :sender_address => %{"notifier" <notifier@fichteid.heroku.com>},
+        :exception_recipients => %w{mail@jonasschneider.com}
+    end
+    
     use Rack::Flash
     
     set :authentication_delegate, Fichteid::LdapUser
