@@ -7,7 +7,7 @@ gem 'net-ldap'
 gem 'rack-flash'
 gem "airbrake"
 
-gem 'exception_notification'
+gem 'airbrake'
 gem 'i18n'
 
 group :development do
