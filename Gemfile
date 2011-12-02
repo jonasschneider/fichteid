@@ -8,6 +8,7 @@ gem 'rack-flash'
 gem "airbrake"
 
 gem 'exception_notification'
+gem 'i18n'
 
 group :development do
   gem 'rake'

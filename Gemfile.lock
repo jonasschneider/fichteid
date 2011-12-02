@@ -24,6 +24,7 @@ GEM
     exception_notification (2.4.1)
     guid (0.1.1)
     haml (3.0.25)
+    i18n (0.6.0)
     json (1.6.3)
     multi_json (1.0.4)
     net-ldap (0.2.2)
@@ -68,6 +69,7 @@ DEPENDENCIES
   airbrake
   exception_notification
   hancock!
+  i18n
   net-ldap
   rack-flash
   rack-test (~> 0.5.0)
