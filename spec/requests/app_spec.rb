@@ -88,26 +88,6 @@ u = "/sso?openid.mode=checkid_setup&openid.identity=http%3a%2f%2fspecs.openid.ne
       last_response.should be_a_redirect_to_the_consumer("http://www.swedenintouch.se/Templates/SignInOpenId.aspx?id=131&token=GBjLQ3%2bJ4x0Lgqx2LZtHzh0pUZ9nLfshQBqlDA%2fW8P1odHRwOi8vc3BlY3Mub3BlbmlkLm5ldC9hdXRoLzIuMC9pZGVudGlmaWVyX3NlbGVjdA0KaHR0cDovL3NwZWNzLm9wZW5pZC5uZXQvYXV0aC8yLjAvaWRlbnRpZmllcl9zZWxlY3QNCmh0dHA6Ly9maWNodGVpZC5oZXJva3UuY29tL3Nzbw0KMi4wDQo%3d", user)
     end
     
-    it "works in integration 2" do
-      return_url = "http://titan:80/jonas/php-openid/examples/consumer/finish_auth.php?janrain_nonce=2011-12-02T17:26:31ZgrTN4x"
-      opts = {
-        "openid.ns"=>"http://specs.openid.net/auth/2.0", 
-        "openid.ns.sreg"=>"http://openid.net/extensions/sreg/1.1", 
-        "openid.ns.pape"=>"http://specs.openid.net/extensions/pape/1.0", "openid.sreg.required"=>"nickname", 
-        "openid.sreg.optional"=>"fullname,email", "openid.pape.preferred_auth_policies"=>"", 
-        "openid.realm"=>"http://titan:80/jonas/php-openid/examples/consumer/", "openid.mode"=>"checkid_setup", 
-        "openid.return_to"=>return_url,
-        "openid.identity"=>"http://specs.openid.net/auth/2.0/identifier_select", 
-        "openid.claimed_id"=>"http://specs.openid.net/auth/2.0/identifier_select", 
-        "openid.assoc_handle"=>"{HMAC-SHA1}{4ed90a41}{ybgdAw==}"
-      }
-
-      post '/sso', opts
-      follow_redirect! # redirects to the GET aequivalent
-      click_button 'Fortfahren'
-      last_response.should be_a_redirect_to_the_consumer(return_url, user)
-    end
-    
     
     describe "with a correct signature" do
       let(:params) do
