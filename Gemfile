@@ -5,6 +5,9 @@ gem 'hancock', :git => 'git://github.com/jonasschneider/hancock.git'
 
 gem 'net-ldap'
 gem 'rack-flash'
+gem "airbrake"
+
+gem 'exception_notification'
 
 group :development do
   gem 'rake'

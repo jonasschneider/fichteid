@@ -1,7 +1,13 @@
 require 'fichteid/ldap_user'
 
+require 'airbrake'
+
 require 'openssl'
 require 'base64'
+
+Airbrake.configure do |config|
+  config.api_key = '3a092cb7a48664b5b3f328afb1c88657'
+end
 
 module Fichteid
   class App < ::Hancock::SSO::App
@@ -16,10 +22,8 @@ module Fichteid
     end
     
     configure :production do
-      use ExceptionNotifier,
-        :email_prefix => "[FichteID] ",
-        :sender_address => %{"notifier" <notifier@fichteid.heroku.com>},
-        :exception_recipients => %w{mail@jonasschneider.com}
+      use Airbrake::Rack
+      enable :raise_errors
     end
     
     use Rack::Flash
