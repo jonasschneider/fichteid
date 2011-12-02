@@ -6,6 +6,10 @@ gem 'hancock', :git => 'git://github.com/jonasschneider/hancock.git'
 gem 'net-ldap'
 gem 'rack-flash'
 
+group :development do
+  gem 'rake'
+end
+
 group :test do
   gem 'rspec',       '~>2.1.0', :require => 'rspec'
   gem 'webrat',      '~>0.7.0'
