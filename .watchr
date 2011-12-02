@@ -6,7 +6,7 @@ end
 
 def spec(file)
   if File.exists?(file)
-    run("rspec --fail-fast #{file}")
+    run("spin push #{file}")
   else
     puts("Spec: #{file} does not exist.")
   end
@@ -17,7 +17,7 @@ watch("spec/.*/*_spec\.rb") do |match|
   spec(match[0])
 end
 
-watch("app/(.*)\.rb") do |match|
+watch("app/(.*)") do |match|
   puts(match)
-  spec("spec/requests/#{match[1]}_spec.rb")
+  spec("spec/requests/app_spec.rb")
 end

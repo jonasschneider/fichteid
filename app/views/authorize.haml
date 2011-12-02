@@ -1,0 +1,13 @@
+- section :status do
+  Wollen Sie auf
+  %strong= params['openid.realm']
+  zugreifen?
+
+%form{ action: request.path }
+  - params.select{|k,v|k.match(/^openid/)}.each do |k, v|
+    %input{ type: 'hidden', name: k, value: v }
+  %input{ type: 'hidden', name: 'return_url_signature', value: correct_signature }
+  %input{ type: 'submit', value: 'Fortfahren' }
+
+%form{ action: params['openid.return_to'] }
+  %input{ type: 'submit', value: 'Abbrechen' }
