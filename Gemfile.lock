@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/jonasschneider/hancock.git
-  revision: 73b5e668d4244c453310d233195493225045c6a0
+  revision: 2c1bf2e19855d9d0036912e0597da6651a932460
   specs:
     hancock (0.3.1)
       guid (~> 0.1.1)
